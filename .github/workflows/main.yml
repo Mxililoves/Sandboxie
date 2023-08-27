@@ -116,3 +116,12 @@ jobs:
           path: |
             Installer/SbiePlus_x64/*
           retention-days: 60
+
+      - name: Download a Build Artifact
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        uses: actions/download-artifact@v2.1.1
+        with:
+          # Artifact name
+          name: Sandboxie_x64
+          # Destination path
+          path: Installer/SbiePlus_x64/down/*
